@@ -1,14 +1,30 @@
-const base= document.querySelector(".base-value");
-const height = document.querySelector(".height-value");
-const calculateHypotenuseButton = document.querySelector("#calculate-hypotenuse");
-const outputEl = document.querySelector(".output");
+var isHypotenuseButton=document.querySelector("#btn-hypotenuse");
+var hypotenuseinput=document.querySelectorAll('.hypotenuseinput');
+var resultHypotenuse=document.querySelector('#result-hypotenuse');
 
-calculateHypotenuseButton.addEventListener("click",calHypotenuse);
-
-function calHypotenuse(){
-    const squareSum = (base.value*base.value) + (height.value*height.value);
-    const hypotenuse = Math.sqrt(squareSum);
-
-    outputEl.innerText = "The length of hypotenuse is " + hypotenuse;
+function calculateHypotenuse(base,height){
+    return Math.sqrt((baseHypotenuse**2)+(heightHypotenuse**2));
 }
 
+function displayIfHypotenuse(){
+    baseHypotenuse=Number(hypotenuseinput[0].value);
+    heightHypotenuse=Number(hypotenuseinput[1].value);
+    var hypotenuse;
+    if (baseHypotenuse && heightHypotenuse){
+        if ((baseHypotenuse<0) || (heightHypotenuse<0)){
+            resultHypotenuse.innerText="Base or Height values cannot be negative";
+        }
+        else {
+            hypotenuse= calculateHypotenuse(baseHypotenuse,heightHypotenuse);
+            resultHypotenuse.innerText=`Hypotenuse is ${hypotenuse}`;
+    
+        }
+    } 
+    else{
+        resultHypotenuse.innerText="Enter base and height values greater than zero";
+    }  
+    
+}
+
+
+isHypotenuseButton.addEventListener("click",displayIfHypotenuse);

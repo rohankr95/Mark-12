@@ -4,23 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculate Area</title>
-
+    <title>Triangles and You</title>
+    <link rel="stylesheet" href="./isTriangle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <h1 class="heading">Calculate Area of a triangle</h1>
-    <label for="first-side">Enter first side of triangle</label>
-    <input type="number" class="first-side">
-    <label for="second-side">Enter second side of triangle</label>
-    <input type="second-side" class="second-side">
-    <label for="third-side">Enter third side of triangle</label>
-    <input type="number" class="third-side">
-    <button id="calculate-area">Calculate</button>
-   
-    <div class="output"></div>
-  
-
-
-    <script src="area.js"></script>
+    <div class="header">
+        <h1>Fun with Triangles</h1>
+        <nav><ul class="nav-item">
+            <li ><a href="index.html">Is Triangle?</a></li>
+            <li ><a href="triangleQuiz.html">Quiz</a></li>
+            <li ><a href="hypotenuse.html">Hypotenuse</a></li>
+            <li ><a href="#" class="active">Area of Triangle</a></li></ul>
+        </nav>
+    </div>
+    <div class="main">
+        <h2 class="sub-heading">Calculate the Area</h2>
+        <label for="area-base">Enter Base
+        <input type="number" class="area-input inputbox" placeholder="Enter Base">
+        </label>
+        <label for="area-height">Enter Height
+        <input type="number" class="area-input inputbox" placeholder="Enter Height">
+        </label>
+        <button id="btn-area" class="btn">Calculate Area</button>
+        <div class="result" id="area-result">Area of triangle will be displayed here</div>
+        <div class="formula">
+            Area of triangle is calculated by using the formula: (Base x Height) / 2 
+        </div>
+    </div>
+    <footer>
+        <p>&copy;Rohan singh</p>
+        <ul>
+            <li class="social-icon"><a href="https://twitter.com/TheDank_Rohan" target="__blank"><i class="fa fa-twitter"></i></a></li>
+            <li class="social-icon"><a href="hhttps://github.com/rohankr95" target="__blank"><i class="fa fa-github"></i></a></li>
+            <li class="social-icon"><a href="https://www.linkedin.com/in/rohan-singh-7a73aa138" target="__blank"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+    </footer>
+    <script src="./area.js"></script>
+    
+    
 </body>
 </html>

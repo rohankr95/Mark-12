@@ -1,25 +1,38 @@
-const angle = document.querySelectorAll(".angle-input");
-const isTriangleBtn = document.querySelector("#is-triangle-button");
-const output = document.querySelector(".output");
+var isTrianglebutton=document.querySelector("#btn-is-triangle");
+var isTriangleangle=document.querySelectorAll(".angle");
+var isTriangleresult=document.querySelector("#result-is-triangle");
 
 
-isTriangleBtn.addEventListener("click",isTriangle);
+function calculateSumOfAngles(ang1,ang2,ang3){
+    return (ang1+ang2+ang3);
 
-function calcSumOfAngles(angle1,angle2,angle3)
-{
-    const sumOfAngles = angle1+angle2+angle3;
-    return sumOfAngles;
 }
-
 
 function isTriangle(){
-   const sumOfAngles = calcSumOfAngles(Number(angle[0].value),Number(angle[1].value),Number(angle[2].value));
-   if(sumOfAngles===180){
-    output.innerText="yay! the angles form a triangle."
-   }
-   else{
-
-    output.innerText = "Ohh! No!, the angles do not form a triangle"
-
-   }
+    var angle1=Number(isTriangleangle[0].value);
+    var angle2=Number(isTriangleangle[1].value);
+    var angle3=Number(isTriangleangle[2].value);
+     if ((angle1 && angle2) && angle3){
+        if (((angle1<0) || (angle2<0))|| (angle3<0)){
+            isTriangleresult.innerText="The values of angles cannot be negative";
+        }
+        else{
+            var total=calculateSumOfAngles(angle1,angle2,angle3);
+            if ((total)===180){
+                isTriangleresult.innerText="Yay! It is a triangle";
+            }
+            else{
+                isTriangleresult.innerText="No sorry not a triangle";
+            }
+        }
+        
+    }
+    else{
+        isTriangleresult.innerText="Please enter all the values greater than zero";
+    }
+    
 }
+
+
+
+isTrianglebutton.addEventListener("click",isTriangle);

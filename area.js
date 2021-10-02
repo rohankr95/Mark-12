@@ -1,35 +1,26 @@
-const a = document.querySelector(".first-side")
-const b = document.querySelector(".second-side")
-const c = document.querySelector(".third-side")
+var inputOfTriangle=document.querySelectorAll(".area-input");
+var result=document.querySelector("#area-result");
+var btnArea=document.querySelector("#btn-area");
 
-const calculateButton = document.querySelector("#calculate-area");
-
-const outputEl = document.querySelector(".output");
-
-
-calculateButton.addEventListener("click",calculateArea)
-
-
-function checkIfTrianglePossible(d,e,f){
-
-    if(d+e>f && e+f>d && d+f>e){
-
-        return true;
-    }
-
-    return false;
-
+function calculateArea(base,height){
+    return ((base*height)/2);
 }
 
-
-
-
-function calculateArea(){
-    let checkTriangle = checkIfTrianglePossible(Number(a.value),Number(b.value),Number(c.value));
-    if(checkTriangle){
-        const s = (Number(a.value) + Number(b.value) + Number(c.value))/2;
-        console.log(s);
+function displayResult(){
+    var base=Number(inputOfTriangle[0].value);
+    var height=Number(inputOfTriangle[1].value);
+    if(base && height){
+        if ((base<0) || (height<0)){
+            result.innerText="Base and height values cannot be negative";
+        }
+        else{
+            var area=calculateArea(base,height);
+            result.innerText=`The area of triangle is: ${area}`;
+        }
     }
-
-    
+    else{
+        result.innerText="Enter base and height values greater than zero";
+    }
 }
+
+btnArea.addEventListener("click",displayResult);

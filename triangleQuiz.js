@@ -1,22 +1,25 @@
-const submitAnswerButton = document.querySelector("#submit-answer-button");
-const quizForm = document.querySelector(".quiz-form");
-const output = document.querySelector("#output"); 
+var btnQuiz=document.querySelector('#triangle-quiz');
+var outputQuiz=document.querySelector('#quiz-result');
+var formQuiz=document.querySelector('form');
 
-const correctAnswer = ["90°","right angled"];
-
-submitAnswerButton.addEventListener("click",calculateScore);
-
+const correctAnswers={
+    question1:"90",
+    question2:"right angled",
+    question3:"scalene",
+    question4:"equilateral",
+    question5:"60"};
 
 function calculateScore(){
-    let score=0;
-    let index=0;
-    const formResult = new FormData(quizForm);
-    for(let value of formResult.values()){
-        if(value===correctAnswer[index]){
-            score++;
+    var data=new FormData(formQuiz);
+    var score=0;
+    for(let value of data.entries()){
+        if(correctAnswers[value[0]]===value[1].toLowerCase()){
+            score=score+1;
         }
-        index++;
     }
 
-    output.innerText = "Your score is " + score;
+    outputQuiz.innerText=`Your score is ${score}`;
+
 }
+
+btnQuiz.addEventListener('click',calculateScore);
